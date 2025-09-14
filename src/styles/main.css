@@ -97,14 +97,15 @@ h1 {
 .count-button.decrease,
 .count-button.increase {
   border-color: var(--primary-red);
-  background: var(--primary-red);
-  color: var(--white);
+  background: var(--white);
+  color: var(--primary-red);
 }
 
 .count-button.decrease:hover,
 .count-button.increase:hover {
-  background: var(--primary-red-dark);
-  border-color: var(--primary-red-dark);
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+  color: var(--white);
 }
 
 #player-count:focus {
