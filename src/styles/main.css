@@ -127,7 +127,6 @@ h1 {
 
 #start-game.wide {
   width: 100%;
-  max-width: 500px;
   padding: var(--space-lg) var(--space-3xl);
 }
 
@@ -208,6 +207,10 @@ h1 {
 .home-actions {
   text-align: center;
   margin-top: var(--space-3xl);
+}
+
+.home-actions .game-button.wide {
+  width: 100%;
 }
 
 /* ゲームボードのスタイル */
@@ -620,13 +623,8 @@ h1 {
 
 .game-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin-bottom: var(--space-xl);
-}
-
-.game-header h2 {
-  margin: 0;
-  color: var(--primary-red);
 }
 

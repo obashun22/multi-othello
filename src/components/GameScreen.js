@@ -25,7 +25,6 @@ export class GameScreen {
     this.container.innerHTML = `
       <div class="game-content">
         <div class="game-header">
-          <h2>みんなでオセロ</h2>
           <div class="game-controls">
             <button id="back-to-home" class="game-button secondary">ホームに戻る</button>
           </div>
