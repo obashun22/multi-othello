@@ -1,4 +1,4 @@
-import { $, showScreen, showNotification } from '../utils/helpers.js'
+import { $, showScreen } from '../utils/helpers.js'
 
 /**
  * 結果画面コンポーネント
@@ -243,7 +243,7 @@ export class ResultScreen {
     try {
       const success = this.gameState.initGame(playerCount)
       if (!success) {
-        showNotification('新しいゲームの開始に失敗しました', 'error')
+        console.error('新しいゲームの開始に失敗しました')
         return
       }
 
@@ -255,10 +255,8 @@ export class ResultScreen {
         this.gameState.currentScreen = 'game'
       }
 
-      showNotification(`新しいゲームを開始しました！（${playerCount}人）`, 'success')
 
     } catch (error) {
-      showNotification(error.message, 'error')
       console.error('リプレイエラー:', error)
     }
   }
@@ -274,7 +272,6 @@ export class ResultScreen {
       showScreen('#home-screen')
       this.gameState.currentScreen = 'home'
     }
-    showNotification('ホーム画面に戻りました', 'info')
   }
 
   /**

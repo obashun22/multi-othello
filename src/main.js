@@ -3,7 +3,7 @@ import { GameState } from './game/GameState.js'
 import { HomeScreen } from './components/HomeScreen.js'
 import { GameScreen } from './components/GameScreen.js'
 import { ResultScreen } from './components/ResultScreen.js'
-import { showNotification, showScreen } from './utils/helpers.js'
+import { showScreen } from './utils/helpers.js'
 
 console.log('マルチプレイヤーオセロ - 開発開始！')
 
@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // ホーム画面から開始
     navigateToScreen('home')
 
-    showNotification('マルチプレイヤーオセロが起動しました！', 'success')
     console.log('すべてのコンポーネントが正常に初期化されました')
 
     // デバッグ用のグローバル変数と画面遷移関数
@@ -63,6 +62,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   } catch (error) {
     console.error('初期化エラー:', error)
-    showNotification('アプリケーションの初期化に失敗しました', 'error')
   }
 })

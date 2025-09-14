@@ -1,4 +1,4 @@
-import { $, showScreen, showNotification } from '../utils/helpers.js'
+import { $, showScreen } from '../utils/helpers.js'
 
 /**
  * ホーム画面コンポーネント
@@ -84,7 +84,7 @@ export class HomeScreen {
       // ゲーム状態を初期化（プレビューのため）
       const success = this.gameState.initGame(playerCount)
       if (!success) {
-        showNotification('ゲームの初期化に失敗しました', 'error')
+        console.error('ゲームの初期化に失敗しました')
         return
       }
 
@@ -92,7 +92,6 @@ export class HomeScreen {
       this.renderPlayerPreview(this.gameState.players)
 
     } catch (error) {
-      showNotification(error.message, 'error')
       console.error('プレビューエラー:', error)
     }
   }
@@ -104,12 +103,12 @@ export class HomeScreen {
    */
   validatePlayerCount(playerCount) {
     if (isNaN(playerCount)) {
-      showNotification('有効な数値を入力してください', 'error')
+      console.error('有効な数値を入力してください')
       return false
     }
 
     if (playerCount < 2 || playerCount > 8) {
-      showNotification('プレイヤー数は2人から8人の間で設定してください', 'error')
+      console.error('プレイヤー数は2人から8人の間で設定してください')
       return false
     }
 
@@ -168,7 +167,7 @@ export class HomeScreen {
       // ゲームを初期化
       const success = this.gameState.initGame(playerCount)
       if (!success) {
-        showNotification('ゲームの開始に失敗しました', 'error')
+        console.error('ゲームの開始に失敗しました')
         return
       }
 
@@ -180,11 +179,9 @@ export class HomeScreen {
         this.gameState.currentScreen = 'game'
       }
 
-      showNotification(`${playerCount}人でのゲームを開始します！`, 'success')
       console.log('ゲーム開始:', this.gameState.getGameStats())
 
     } catch (error) {
-      showNotification(error.message, 'error')
       console.error('ゲーム開始エラー:', error)
     }
   }

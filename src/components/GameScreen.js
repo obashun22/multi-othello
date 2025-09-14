@@ -1,4 +1,4 @@
-import { $, showScreen, showNotification } from '../utils/helpers.js'
+import { $, showScreen } from '../utils/helpers.js'
 
 /**
  * ゲーム画面コンポーネント
@@ -185,14 +185,13 @@ export class GameScreen {
    */
   handleCellClick(row, col) {
     if (this.gameState.gamePhase !== 'playing') {
-      showNotification('ゲーム中ではありません', 'error')
+      console.error('ゲーム中ではありません')
       return
     }
 
     const result = this.gameState.makeMove(row, col)
 
     if (result.success) {
-      showNotification('手を実行しました', 'success')
 
       if (result.gameOver) {
         this.handleGameOver(result.result)
@@ -200,7 +199,7 @@ export class GameScreen {
         this.updateDisplay()
       }
     } else {
-      showNotification(result.message, 'error')
+      console.error(result.message)
     }
   }
 
@@ -228,7 +227,6 @@ export class GameScreen {
       window.resultScreen.show(result)
     }
 
-    showNotification('ゲーム終了！', 'success')
   }
 
   /**
@@ -244,7 +242,6 @@ export class GameScreen {
         showScreen('#home-screen')
         this.gameState.currentScreen = 'home'
       }
-      showNotification('ホーム画面に戻りました', 'info')
     }
   }
 

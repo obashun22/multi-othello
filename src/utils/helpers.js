@@ -109,54 +109,6 @@ export function setLoading(loading, message = 'Loading...') {
   }
 }
 
-/**
- * 通知を表示
- * @param {string} message - メッセージ
- * @param {string} type - 通知タイプ ('success' | 'error' | 'info')
- * @param {number} duration - 表示時間（ミリ秒）
- */
-export function showNotification(message, type = 'info', duration = 3000) {
-  const notification = createElement('div', {
-    className: `notification notification-${type}`,
-    innerHTML: `
-      <span>${message}</span>
-      <button class="notification-close">&times;</button>
-    `
-  })
-
-  // 通知を追加
-  document.body.appendChild(notification)
-
-  // フェードイン
-  setTimeout(() => {
-    notification.classList.add('show')
-  }, 10)
-
-  // 自動消去
-  const autoHide = setTimeout(() => {
-    hideNotification(notification)
-  }, duration)
-
-  // 手動消去
-  const closeBtn = notification.querySelector('.notification-close')
-  closeBtn.addEventListener('click', () => {
-    clearTimeout(autoHide)
-    hideNotification(notification)
-  })
-}
-
-/**
- * 通知を非表示
- * @param {Element} notification - 通知要素
- */
-function hideNotification(notification) {
-  notification.classList.remove('show')
-  setTimeout(() => {
-    if (notification.parentNode) {
-      notification.parentNode.removeChild(notification)
-    }
-  }, 300)
-}
 
 /**
  * 遅延実行
