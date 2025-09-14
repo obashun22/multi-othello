@@ -94,13 +94,15 @@ h1 {
   transform: translateY(0);
 }
 
-.count-button.decrease {
+.count-button.decrease,
+.count-button.increase {
   border-color: var(--primary-red);
   background: var(--primary-red);
   color: var(--white);
 }
 
-.count-button.decrease:hover {
+.count-button.decrease:hover,
+.count-button.increase:hover {
   background: var(--primary-red-dark);
   border-color: var(--primary-red-dark);
 }

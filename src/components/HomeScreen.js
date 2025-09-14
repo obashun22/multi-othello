@@ -30,7 +30,7 @@ export class HomeScreen {
             <div class="player-count-controls">
               <button id="decrease-players" class="count-button decrease">−</button>
               <input type="number" id="player-count" min="2" max="8" value="2" readonly>
-              <button id="increase-players" class="count-button">+</button>
+              <button id="increase-players" class="count-button increase">+</button>
             </div>
           </div>
           <div id="player-preview" class="player-preview">
