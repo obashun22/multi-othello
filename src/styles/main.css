@@ -55,18 +55,20 @@ h1 {
 }
 
 #player-count {
-  padding: var(--space-md) var(--space-lg);
+  height: 48px;
+  padding: 0 var(--space-lg);
   border: 2px solid var(--gray-medium);
   border-radius: var(--radius-md);
   font-size: var(--font-size-large);
   width: 80px;
   text-align: center;
   transition: border-color var(--transition-base);
+  box-sizing: border-box;
 }
 
 .count-button {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border: 2px solid var(--gray-medium);
   border-radius: var(--radius-md);
   background: var(--white);
@@ -78,6 +80,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .count-button:hover {
@@ -89,6 +92,17 @@ h1 {
 
 .count-button:active {
   transform: translateY(0);
+}
+
+.count-button.decrease {
+  border-color: var(--primary-red);
+  background: var(--primary-red);
+  color: var(--white);
+}
+
+.count-button.decrease:hover {
+  background: var(--primary-red-dark);
+  border-color: var(--primary-red-dark);
 }
 
 #player-count:focus {

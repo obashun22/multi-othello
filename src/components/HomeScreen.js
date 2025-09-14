@@ -27,9 +27,8 @@ export class HomeScreen {
         <h2>プレイヤー数を選択してください</h2>
         <div class="player-count-section">
           <div class="player-count-selector">
-            <label for="player-count">プレイヤー数:</label>
             <div class="player-count-controls">
-              <button id="decrease-players" class="count-button">−</button>
+              <button id="decrease-players" class="count-button decrease">−</button>
               <input type="number" id="player-count" min="2" max="8" value="2" readonly>
               <button id="increase-players" class="count-button">+</button>
             </div>
