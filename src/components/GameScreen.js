@@ -43,9 +43,6 @@ export class GameScreen {
           </div>
         </div>
 
-        <div class="game-status">
-          <p id="game-status-text">ゲームを開始しました</p>
-        </div>
       </div>
     `
   }
@@ -81,7 +78,6 @@ export class GameScreen {
 
     this.updateScoreBoard()
     this.updateBoard()
-    this.updateGameStatus()
   }
 
   /**
@@ -162,20 +158,6 @@ export class GameScreen {
     })
   }
 
-  /**
-   * ゲーム状況テキストを更新
-   */
-  updateGameStatus() {
-    const statusText = $('#game-status-text')
-    const currentPlayer = this.gameState.getCurrentPlayer()
-    const validMoves = this.gameState.getCurrentPlayerValidMoves()
-
-    if (validMoves.length === 0) {
-      statusText.textContent = `${currentPlayer.name}は有効手がありません（自動パス済み）`
-    } else {
-      statusText.textContent = `${currentPlayer.name}のターン - ${validMoves.length}箇所に石を置けます`
-    }
-  }
 
 
   /**
