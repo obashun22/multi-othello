@@ -28,7 +28,11 @@ export class HomeScreen {
         <div class="player-count-section">
           <div class="player-count-selector">
             <label for="player-count">プレイヤー数:</label>
-            <input type="number" id="player-count" min="2" max="8" value="2">
+            <div class="player-count-controls">
+              <button id="decrease-players" class="count-button">−</button>
+              <input type="number" id="player-count" min="2" max="8" value="2" readonly>
+              <button id="increase-players" class="count-button">+</button>
+            </div>
           </div>
           <div id="player-preview" class="player-preview">
             <!-- プレイヤープレビューがここに表示される -->
@@ -47,10 +51,30 @@ export class HomeScreen {
   attachEventListeners() {
     const playerCountInput = $('#player-count')
     const startGameButton = $('#start-game')
+    const decreaseButton = $('#decrease-players')
+    const increaseButton = $('#increase-players')
 
     // プレイヤー数入力の変更（リアルタイム更新）
     playerCountInput.addEventListener('input', () => {
       this.showPlayerPreview()
+    })
+
+    // プレイヤー数減少ボタン
+    decreaseButton.addEventListener('click', () => {
+      const currentValue = parseInt(playerCountInput.value)
+      if (currentValue > 2) {
+        playerCountInput.value = currentValue - 1
+        this.showPlayerPreview()
+      }
+    })
+
+    // プレイヤー数増加ボタン
+    increaseButton.addEventListener('click', () => {
+      const currentValue = parseInt(playerCountInput.value)
+      if (currentValue < 8) {
+        playerCountInput.value = currentValue + 1
+        this.showPlayerPreview()
+      }
     })
 
     // ゲーム開始ボタン
