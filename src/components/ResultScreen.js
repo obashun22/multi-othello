@@ -44,6 +44,13 @@ export class ResultScreen {
           <!-- ゲーム統計がここに表示される -->
         </div>
 
+        <div class="final-board">
+          <h3>最終盤面</h3>
+          <div class="final-board-container" id="final-board-container">
+            <!-- 最終盤面がここに表示される -->
+          </div>
+        </div>
+
         <div class="result-actions">
           <button id="play-again" class="game-button primary">もう一度プレイ</button>
           <button id="back-to-home-result" class="game-button secondary">ホームに戻る</button>
@@ -98,6 +105,7 @@ export class ResultScreen {
     this.updateWinnerAnnouncement()
     this.updateScoreRanking()
     this.updateGameStats()
+    this.updateFinalBoard()
   }
 
   /**
@@ -141,14 +149,12 @@ export class ResultScreen {
 
       announcementHTML = `
         <div class="victory-announcement">
-          <h3>🎉 勝者は ${winner.name}！</h3>
+          <h3>勝者</h3>
           <div class="winner-display">
             <div class="winner-chip-large" style="background-color: ${winner.color};">
               <span class="winner-name">${winner.name}</span>
-              <span class="winner-score-large">${winnerScore}個</span>
             </div>
           </div>
-          <p>おめでとうございます！</p>
         </div>
       `
     }
@@ -231,6 +237,47 @@ export class ResultScreen {
     `
 
     statsElement.innerHTML = statsHTML
+  }
+
+  /**
+   * 最終盤面を更新
+   */
+  updateFinalBoard() {
+    const finalBoardElement = $('#final-board-container')
+    const boardState = this.gameState.getBoardState()
+
+    let boardHTML = `
+      <div class="final-game-board">
+        <div class="final-board-grid">
+    `
+
+    // ボードセルを作成
+    for (let row = 0; row < 10; row++) {
+      for (let col = 0; col < 10; col++) {
+        const cellValue = boardState[row][col]
+
+        let cellContent = ''
+        if (cellValue !== 0) {
+          const player = this.gameState.players.find(p => p.id === cellValue)
+          if (player) {
+            cellContent = `<div class="final-game-piece" style="background-color: ${player.color};"></div>`
+          }
+        }
+
+        boardHTML += `
+          <div class="final-board-cell">
+            ${cellContent}
+          </div>
+        `
+      }
+    }
+
+    boardHTML += `
+        </div>
+      </div>
+    `
+
+    finalBoardElement.innerHTML = boardHTML
   }
 
   /**
