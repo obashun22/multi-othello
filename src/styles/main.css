@@ -388,26 +388,210 @@ h1 {
   color: var(--white);
 }
 
+/* タブレット対応 */
+@media (max-width: 1024px) {
+  #app {
+    padding: var(--space-lg);
+  }
+
+  .screen {
+    padding: var(--space-2xl);
+  }
+
+  .game-content {
+    max-width: 90%;
+  }
+}
+
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
   :root {
     --board-size: min(90vw, 90vh, 400px);
+    --font-size-4xl: 2rem;
+    --font-size-3xl: 1.5rem;
+    --font-size-2xl: 1.25rem;
   }
 
+  #app {
+    padding: var(--space-md);
+  }
+
+  .screen {
+    padding: var(--space-xl);
+    margin: var(--space-md) 0;
+  }
+
+  h1 {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-2xl);
+  }
+
+  /* ホーム画面 */
+  .player-count-selector {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .player-count-controls {
+    justify-content: center;
+  }
+
+  .player-preview {
+    padding: var(--space-lg);
+  }
+
+  .player-colors {
+    gap: var(--space-sm);
+  }
+
+  .player-chip {
+    min-width: 100px;
+    font-size: var(--font-size-small);
+  }
+
+  /* ゲーム画面 */
   .game-info {
     flex-direction: column;
     gap: var(--space-lg);
     text-align: center;
+    padding: var(--space-md);
   }
 
   .score-board {
     flex-wrap: wrap;
     justify-content: center;
+    gap: var(--space-sm);
+  }
+
+  .player-score {
+    min-width: 100px;
+    padding: var(--space-md);
   }
 
   .game-controls {
     flex-direction: column;
     align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .game-button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* 結果画面 */
+  .result-content {
+    padding: 0;
+  }
+
+  .winner-announcement {
+    padding: var(--space-xl);
+  }
+
+  .winner-chip-large {
+    margin: var(--space-md);
+    padding: var(--space-lg) var(--space-xl);
+  }
+
+  .final-scores,
+  .game-stats,
+  .final-board {
+    margin: var(--space-xl) 0;
+  }
+
+  .score-ranking {
+    padding: var(--space-lg);
+  }
+
+  .rank-item {
+    padding: var(--space-md);
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .player-info {
+    flex: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .stat-item {
+    padding: var(--space-md);
+  }
+
+  /* 最終盤面 */
+  .final-board-container {
+    padding: var(--space-md);
+  }
+
+  .final-game-board {
+    transform: scale(0.45);
+  }
+
+  .result-actions {
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .result-actions .game-button {
+    width: 100%;
+  }
+}
+
+/* モバイル小画面対応 */
+@media (max-width: 480px) {
+  :root {
+    --board-size: min(95vw, 95vh, 350px);
+    --space-4xl: var(--space-2xl);
+  }
+
+  #app {
+    padding: var(--space-sm);
+  }
+
+  .screen {
+    padding: var(--space-lg);
+  }
+
+  h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .player-count-controls {
+    scale: 0.9;
+  }
+
+  .score-board {
+    gap: var(--space-xs);
+  }
+
+  .player-score {
+    min-width: 80px;
+    padding: var(--space-sm);
+  }
+
+  .player-score-count {
+    font-size: var(--font-size-lg);
+  }
+
+  .winner-chip-large {
+    font-size: var(--font-size-base);
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .rank-item {
+    font-size: var(--font-size-small);
+  }
+
+  .final-game-board {
+    transform: scale(0.35);
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }
 
