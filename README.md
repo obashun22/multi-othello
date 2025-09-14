@@ -24,17 +24,17 @@ JavaScript/CSS/HTMLで作られたマルチプレイヤー対応のオセロゲ�
 ### ホーム画面
 プレイヤー数を選択してゲームを開始します。
 
-![ホーム画面](docs/img/home-screen.png)
+<img src="docs/img/home-screen.png" alt="ホーム画面" width="600">
 
 ### 4人プレイ選択画面
 各プレイヤーには異なる色が割り当てられます。
 
-![4人プレイ選択](docs/img/home-screen-4players.png)
+<img src="docs/img/home-screen-4players.png" alt="4人プレイ選択" width="600">
 
 ### ゲーム画面
 4人でのマルチプレイヤーオセロゲーム中の様子。
 
-![ゲーム画面](docs/img/game-screen-4players.png)
+<img src="docs/img/game-screen-4players.png" alt="ゲーム画面" width="800">
 
 ## セットアップ
 
