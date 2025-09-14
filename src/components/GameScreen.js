@@ -27,7 +27,6 @@ export class GameScreen {
         <div class="game-header">
           <h2>マルチプレイヤーオセロ</h2>
           <div class="game-controls">
-            <button id="pass-turn" class="game-button secondary" disabled>パス</button>
             <button id="back-to-home" class="game-button secondary">ホームに戻る</button>
           </div>
         </div>
@@ -55,13 +54,7 @@ export class GameScreen {
    * イベントリスナーを設定
    */
   attachEventListeners() {
-    const passButton = $('#pass-turn')
     const backButton = $('#back-to-home')
-
-    // パスボタン
-    passButton.addEventListener('click', () => {
-      this.handlePass()
-    })
 
     // ホームに戻るボタン
     backButton.addEventListener('click', () => {
@@ -89,7 +82,6 @@ export class GameScreen {
     this.updateScoreBoard()
     this.updateBoard()
     this.updateGameStatus()
-    this.updatePassButton()
   }
 
   /**
@@ -179,27 +171,12 @@ export class GameScreen {
     const validMoves = this.gameState.getCurrentPlayerValidMoves()
 
     if (validMoves.length === 0) {
-      statusText.textContent = `有効な手がありません - パスが必要です`
+      statusText.textContent = `${currentPlayer.name}は有効手がありません（自動パス済み）`
     } else {
-      statusText.textContent = `${validMoves.length}箇所に石を置けます`
+      statusText.textContent = `${currentPlayer.name}のターン - ${validMoves.length}箇所に石を置けます`
     }
   }
 
-  /**
-   * パスボタンの状態を更新
-   */
-  updatePassButton() {
-    const passButton = $('#pass-turn')
-    const validMoves = this.gameState.getCurrentPlayerValidMoves()
-
-    if (validMoves.length === 0) {
-      passButton.disabled = false
-      passButton.textContent = 'パス（必須）'
-    } else {
-      passButton.disabled = true
-      passButton.textContent = 'パス'
-    }
-  }
 
   /**
    * セルクリック処理
@@ -227,29 +204,6 @@ export class GameScreen {
     }
   }
 
-  /**
-   * パス処理
-   */
-  handlePass() {
-    if (this.gameState.gamePhase !== 'playing') {
-      showNotification('ゲーム中ではありません', 'error')
-      return
-    }
-
-    const result = this.gameState.pass()
-
-    if (result.success) {
-      showNotification('パスしました', 'info')
-
-      if (result.gameOver) {
-        this.handleGameOver(result.result)
-      } else {
-        this.updateDisplay()
-      }
-    } else {
-      showNotification(result.message, 'error')
-    }
-  }
 
   /**
    * ゲーム終了処理
@@ -257,6 +211,9 @@ export class GameScreen {
    */
   handleGameOver(result) {
     console.log('ゲーム終了:', result)
+
+    // 結果画面に結果を渡す（グローバル変数経由で一時的に）
+    window.gameResult = result
 
     // 結果画面に遷移
     if (window.navigateToScreen) {
@@ -266,8 +223,10 @@ export class GameScreen {
       this.gameState.currentScreen = 'result'
     }
 
-    // 結果画面に結果を渡す（グローバル変数経由で一時的に）
-    window.gameResult = result
+    // 結果画面を直接更新
+    if (window.resultScreen) {
+      window.resultScreen.show(result)
+    }
 
     showNotification('ゲーム終了！', 'success')
   }

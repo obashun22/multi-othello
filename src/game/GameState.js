@@ -186,11 +186,49 @@ export class GameState {
   }
 
   /**
-   * 次のプレイヤーにターンを移す
+   * 次のプレイヤーにターンを移す（自動パス機能付き）
    */
   nextTurn() {
     this.currentPlayerIndex = (this.currentPlayerIndex + 1) % this.players.length
     console.log(`現在のプレイヤー: ${this.getCurrentPlayer().name}`)
+
+    // 新しいプレイヤーが有効手を持たない場合は自動パス
+    this.checkAndAutoPass()
+  }
+
+  /**
+   * 現在のプレイヤーが有効手を持たない場合に自動パスする
+   */
+  checkAndAutoPass() {
+    const currentPlayerId = this.getCurrentPlayerId()
+    const validMoves = this.rules.getValidMoves(currentPlayerId)
+
+    if (validMoves.length === 0) {
+      console.log(`プレイヤー${currentPlayerId}は有効手がないため自動パス`)
+      this.passCount++
+
+      // 全プレイヤーが連続でパスした場合はゲーム終了
+      if (this.passCount >= this.players.length) {
+        this.gamePhase = 'finished'
+        console.log('全プレイヤーがパスしたためゲーム終了')
+
+        // ゲーム終了処理
+        const result = this.rules.determineWinner(this.players.length)
+        console.log('最終結果:', result)
+
+        // ゲーム画面にゲーム終了を通知
+        if (window.gameScreen) {
+          window.gameScreen.handleGameOver(result)
+        }
+        return
+      }
+
+      // 次のプレイヤーに移る（再帰的にチェック）
+      this.nextTurn()
+    } else {
+      // 有効手があるのでパスカウントをリセット
+      this.passCount = 0
+    }
   }
 
   /**

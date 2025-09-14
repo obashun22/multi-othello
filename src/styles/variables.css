@@ -12,15 +12,15 @@
   --gray-dark: #666666;
   --black: #000000;
 
-  /* プレイヤーカラー（2-8人対応） */
-  --player-color-1: #FF6B6B; /* 赤系 */
-  --player-color-2: #4ECDC4; /* ティール */
-  --player-color-3: #45B7D1; /* 青系 */
-  --player-color-4: #96CEB4; /* ミント */
-  --player-color-5: #FFEAA7; /* イエロー */
-  --player-color-6: #DDA0DD; /* ラベンダー */
-  --player-color-7: #98D8C8; /* アクア */
-  --player-color-8: #F7DC6F; /* ゴールド */
+  /* プレイヤーカラー（2-8人対応） - 色相分散版 */
+  --player-color-1: #FF4757; /* 明確な赤 */
+  --player-color-2: #2F80ED; /* 明確な青 */
+  --player-color-3: #27AE60; /* 明確な緑 */
+  --player-color-4: #FF9500; /* 明確なオレンジ */
+  --player-color-5: #8E44AD; /* 明確な紫 */
+  --player-color-6: #F1C40F; /* 明確な黄色 */
+  --player-color-7: #E91E63; /* 明確なピンク */
+  --player-color-8: #607D8B; /* 明確なグレー */
 
   /* フォントサイズ */
   --font-size-small: 0.875rem;

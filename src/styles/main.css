@@ -202,8 +202,8 @@ h1 {
   width: 80%;
   height: 80%;
   border-radius: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  box-shadow: var(--shadow-sm);
+  border: 2px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
   animation: placeAnimate 0.3s ease-out;
 }
 
