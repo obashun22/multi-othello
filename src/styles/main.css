@@ -96,7 +96,7 @@ h1 {
 
 .count-button.decrease,
 .count-button.increase {
-  border-color: var(--primary-red);
+  border-color: var(--gray-medium);
   background: var(--white);
   color: var(--primary-red);
 }
