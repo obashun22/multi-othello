@@ -1,0 +1,68 @@
+/* CSS Variables - Design System */
+:root {
+  /* メインカラー（任天堂風の赤） */
+  --primary-red: #E60012;
+  --primary-red-dark: #CC000F;
+  --primary-red-light: #FF1A2E;
+
+  /* セカンダリカラー */
+  --white: #FFFFFF;
+  --gray-light: #F5F5F5;
+  --gray-medium: #CCCCCC;
+  --gray-dark: #666666;
+  --black: #000000;
+
+  /* プレイヤーカラー（2-8人対応） */
+  --player-color-1: #FF6B6B; /* 赤系 */
+  --player-color-2: #4ECDC4; /* ティール */
+  --player-color-3: #45B7D1; /* 青系 */
+  --player-color-4: #96CEB4; /* ミント */
+  --player-color-5: #FFEAA7; /* イエロー */
+  --player-color-6: #DDA0DD; /* ラベンダー */
+  --player-color-7: #98D8C8; /* アクア */
+  --player-color-8: #F7DC6F; /* ゴールド */
+
+  /* フォントサイズ */
+  --font-size-small: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-large: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.5rem;
+
+  /* フォントウェイト */
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* スペーシング */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+  --space-xl: 20px;
+  --space-2xl: 24px;
+  --space-3xl: 32px;
+  --space-4xl: 40px;
+
+  /* ボーダーレディウス */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* シャドウ */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* トランジション */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* ゲームボードサイズ */
+  --board-size: min(85vw, 85vh, 720px);
+  --cell-size: calc(var(--board-size) / 10);
+}
