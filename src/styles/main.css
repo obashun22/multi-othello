@@ -21,6 +21,19 @@ body {
   text-align: center;
 }
 
+.logo-container {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.main-logo {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 h1 {
   color: var(--primary-red);
   margin-bottom: var(--space-3xl);
@@ -98,14 +111,14 @@ h1 {
 .count-button.increase {
   border-color: var(--gray-medium);
   background: var(--white);
-  color: var(--primary-red);
+  color: var(--gray-dark);
 }
 
 .count-button.decrease:hover,
 .count-button.increase:hover {
-  background: var(--primary-red);
-  border-color: var(--primary-red);
-  color: var(--white);
+  background: var(--gray-medium);
+  border-color: var(--gray-medium);
+  color: var(--gray-dark);
 }
 
 #player-count:focus {
@@ -383,6 +396,10 @@ h1 {
 @media (max-width: 768px) {
   :root {
     --board-size: min(90vw, 90vh, 400px);
+  }
+
+  .main-logo {
+    max-width: 250px;
   }
 
   .game-info {
