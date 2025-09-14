@@ -38,7 +38,7 @@ export class HomeScreen {
           </div>
         </div>
         <div class="home-actions">
-          <button id="start-game" class="game-button primary">ゲーム開始</button>
+          <button id="start-game" class="game-button primary wide">ゲーム開始</button>
         </div>
       </div>
     `
@@ -146,7 +146,7 @@ export class HomeScreen {
     const previewContainer = $('#player-preview')
 
     let previewHTML = `
-      <h3>${players.length}人でのプレイ</h3>
+      <h3>${players.length}人でプレイ</h3>
       <div class="player-colors">
     `
 
@@ -159,9 +159,6 @@ export class HomeScreen {
     })
 
     previewHTML += `
-      </div>
-      <div class="preview-info">
-        <p>各プレイヤーは異なる色の石でプレイします</p>
       </div>
     `
 

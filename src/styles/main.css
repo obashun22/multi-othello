@@ -125,6 +125,12 @@ h1 {
   transition: background-color var(--transition-base);
 }
 
+#start-game.wide {
+  width: 100%;
+  max-width: 500px;
+  padding: var(--space-lg) var(--space-3xl);
+}
+
 #start-game:hover {
   background-color: var(--primary-red-dark);
 }
